@@ -1,14 +1,14 @@
 
 import './App.css';
 import Alert from './Components/Alert';
-import About from './Components/About.js';
+// import About from './Components/About.js';
 import Nav from './Components/Nav';
 import TextForm from './Components/TextForm';
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-} from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Route,
+//   Routes,
+// } from "react-router-dom";
 import React,{useState} from 'react'
 function App() {
   const [mode , setMode]=useState('light') ;
@@ -25,7 +25,7 @@ function App() {
   }, 3000);
 
 }
-  
+  //umer
   const toggleMode=()=>
   {
     if (mode==='light')
