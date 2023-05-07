@@ -1,2 +1,4 @@
 style={{backgroundColor:props.mode==='dark'?'white':'grey' , color:
-props.mode==='dark'?'white':'black'}}
+props.mode==='dark'?'white':'black'}};
+
+  "homepage": "https://Umershzd.github.io/React-TextUtils",

@@ -46,6 +46,7 @@ export default function TextForm(props) {
   copyText.select();
    // Copy the text inside the text field
   navigator.clipboard.writeText(copyText.value);
+  document.getSelection().removeAllRanges();
   // Alert the copied text
   //alert("Copied the text: " + copyText.value);
   props.showAlert("Text has been copied","successs")
@@ -66,22 +67,22 @@ let sentence = Text.replace(/\s+/g, ' ').trim()
     <div className="container" style={{color:props.mode==='dark'?'white':'black'}} >
 <div className="mb-3"  >
     <h1>{props.heading}</h1>
-  <textarea className="form-control" style={{backgroundColor:props.mode==='dark'?'grey':'white' ,color
+  <textarea className="form-control" style={{backgroundColor:props.mode==='dark'?'#13466e':'white' ,color
 :props.mode==='dark'?'white':'black'}} value={Text} onChange={handleonChange} id="Textarea" rows="8"></textarea>
 </div>
-<button type="button" onClick={handleUpChange} className="btn btn-primary mx-2">Convert to Upper Case</button>
-<button type="button" onClick={handleLowChange} className="btn btn-primary mx-2">Convert to Lower Case</button>
-<button type="button" onClick={handleClearChange} className="btn btn-primary mx-2">Clear Text</button>
-<button type="button" onClick={handleSpeakChange} className="btn btn-primary mx-2">Audio</button>
-<button type="button" onClick={handleCopyChange} className="btn btn-primary mx-2">Copy Text</button>
-<button type="button" onClick={handleSpaceChange} className="btn btn-primary mx-2">Remove White Spaces</button>
+<button disabled={Text.length===0} type="button" onClick={handleUpChange} className="btn btn-primary mx-2 my-1">Convert to Upper Case</button>
+<button disabled={Text.length===0} type="button" onClick={handleLowChange} className="btn btn-primary mx-2 my-1" >Convert to Lower Case</button>
+<button disabled={Text.length===0} type="button" onClick={handleClearChange} className="btn btn-primary mx-2 my-1">Clear Text</button>
+<button disabled={Text.length===0} type="button" onClick={handleSpeakChange} className="btn btn-primary mx-2 my-1">Audio</button>
+<button disabled={Text.length===0} type="button" onClick={handleCopyChange} className="btn btn-primary mx-2 my-1">Copy Text</button>
+<button disabled={Text.length===0} type="button" onClick={handleSpaceChange} className="btn btn-primary mx-2 my-1">Remove White Spaces</button>
 
 
     </div>
     <div className="container my-4" style={{color:props.mode==='dark'?'white':'black'}}>
       <h2>Your Text Summary</h2>
-      <p>{Text.split(" ").length} Words {Text.length} Characters </p>
-      <p>{0.008*Text.split(" ").length} Minutes Reading </p>
+      <p>{Text.split(" ").filter((element)=>{return element.length!==0}).length} Words {Text.length} Characters </p>
+      <p>{0.008*Text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes Reading </p>
       <h2>Preview</h2>
       <p>{Text.length>0?Text:"Please Enter the Text in Above Box"}</p>
     </div>
