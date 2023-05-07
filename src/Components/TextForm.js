@@ -40,12 +40,12 @@ export default function TextForm(props) {
   }
   const handleCopyChange=()=>
   {
-    let copyText = document.getElementById("Textarea");
+ //   let copyText = document.getElementById("Textarea");
 
   // Select the text field
-  copyText.select();
-   // Copy the text inside the text field
-  navigator.clipboard.writeText(copyText.value);
+  // copyText.select();
+  //  // Copy the text inside the text field
+  navigator.clipboard.writeText(Text);
   document.getSelection().removeAllRanges();
   // Alert the copied text
   //alert("Copied the text: " + copyText.value);
@@ -81,7 +81,7 @@ let sentence = Text.replace(/\s+/g, ' ').trim()
     </div>
     <div className="container my-4" style={{color:props.mode==='dark'?'white':'black'}}>
       <h2>Your Text Summary</h2>
-      <p>{Text.split(" ").filter((element)=>{return element.length!==0}).length} Words {Text.length} Characters </p>
+      <p>{Text.split(/\s+/).filter((element)=>{return element.length!==0}).length} Words {Text.length} Characters </p>
       <p>{0.008*Text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes Reading </p>
       <h2>Preview</h2>
       <p>{Text.length>0?Text:"Please Enter the Text in Above Box"}</p>

@@ -25,9 +25,20 @@ function App() {
   }, 3000);
 
 }
-  //umer
-  const toggleMode=()=>
+ 
+//   const removedclasses=()=>
+// {
+//   document.body.classList.remove('bg-primary');
+//   document.body.classList.remove('bg-secondary');
+//   document.body.classList.remove('bg-warning');
+//   document.body.classList.remove('bg-dark');
+//   document.body.classList.remove('bg-light');
+// }
+ const toggleMode=()=>
   {
+
+    // removedclasses();
+    // document.body.classList.add('bg-'+cls);
     if (mode==='light')
     {
       setMode('dark');
